@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Android RCT Gradle</string>
+
+    <string name="hello_world">Hello RCT world!</string>
+</resources>
