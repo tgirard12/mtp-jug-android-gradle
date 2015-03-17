@@ -37,13 +37,11 @@ android {
     }
     productFlavors{
         free {
-            signingConfig = signingConfigs.releaseConfig
             applicationId "me.tgirard12.androidgradle.free"
             minSdkVersion 15
             versionCode 5
         }
         paid{
-            signingConfig = signingConfigs.releaseConfig
         }
     }
 }

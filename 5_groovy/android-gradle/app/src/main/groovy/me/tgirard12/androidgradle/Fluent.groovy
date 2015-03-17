@@ -1,14 +1,12 @@
 package me.tgirard12.androidgradle
 
-import android.os.AsyncTask;
-
-import groovy.lang.Closure;
+import android.os.AsyncTask
 
 /**
  * An implementation of {@link android.os.AsyncTask} which makes it easy to deal with
  * requests/callbacks using Groovy closures
  */
-public class Fluent<Result, Progress> extends AsyncTask<Void, Progress, Result> {
+public class Fluent<Result, Progress> extends AsyncTask<Object, Progress, Result> {
     private final Closure<Result> request;
     private final ResultConsumer<Result> then;
     private final Closure progress;
@@ -21,7 +19,7 @@ public class Fluent<Result, Progress> extends AsyncTask<Void, Progress, Result> 
 
 
     @Override
-    protected Result doInBackground(Void... params) {
+    protected Result doInBackground(Object... params) {
         return request.call();
     }
 

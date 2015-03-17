@@ -27,8 +27,11 @@ class MainActivity extends ActionBarActivity {
 
 
         textView.onClickListener = {
-            Toast.makeText(this, "Click $nbClick times", Toast.LENGTH_SHORT).show()
-            nbClick++
+            Fluent.async {
+                new URL("http://api.openweathermap.org/data/2.5/weather?q=Montpellier,fr").readLines()
+            } then {
+                textView.text = (it[0])
+            }
         }
     }
 
