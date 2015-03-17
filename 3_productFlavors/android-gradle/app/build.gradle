@@ -27,6 +27,7 @@ android {
 
         release {
             minifyEnabled false
+            signingConfig signingConfigs.releaseConfig
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         rct.initWith(buildTypes.release)
@@ -37,13 +38,11 @@ android {
     }
     productFlavors{
         free {
-            signingConfig = signingConfigs.releaseConfig
             applicationId "me.tgirard12.androidgradle.free"
             minSdkVersion 15
             versionCode 5
         }
         paid{
-            signingConfig = signingConfigs.releaseConfig
         }
     }
 }
