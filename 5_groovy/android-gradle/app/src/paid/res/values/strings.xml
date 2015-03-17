@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Android Paid Gradle</string>
+
+    <string name="hello_world">Hello Paid world!</string>
+</resources>
