@@ -2,6 +2,8 @@ package me.tgirard12.androidgradle
 
 import android.os.Bundle
 import android.support.v7.app.ActionBarActivity
+import android.util.Base64
+import android.webkit.WebView
 import android.widget.TextView
 import groovy.transform.CompileStatic
 
@@ -24,9 +26,11 @@ class MainActivity extends ActionBarActivity {
 
         textView.onClickListener = {
             Fluent.async {
-                new URL("http://api.openweathermap.org/data/2.5/weather?q=Montpellier,fr").readLines()
+                def content = new URL("http://www.jug-montpellier.org/public/images/logo.png").getBytes()
+                Base64.encodeToString(content, 0)
             } then {
-                textView.text = (it[0])
+                def webView = findViewById(R.id.webView) as WebView
+                webView.loadData(""" <img src="data:image/png;base64,$it" width="100px" height="80px"/> """, 'text/html', 'utf-8')
             }
         }
     }

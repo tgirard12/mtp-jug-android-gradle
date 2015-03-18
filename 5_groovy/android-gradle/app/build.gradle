@@ -44,6 +44,9 @@ android {
         paid{
         }
     }
+    packagingOptions {
+        exclude 'META-INF/NOTICE.txt'
+    }
 }
 apply plugin: 'groovyx.grooid.groovy-android'
 
